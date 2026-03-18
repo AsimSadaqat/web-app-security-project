@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+  <a href="/">Home</a>
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+</div>
+
+<div class="container">
+  <form method="POST">
+    <h2>Register</h2>
+    <input type="text" name="username" placeholder="Enter Username"><br>
+    <input type="text" name="password" placeholder="Enter Password"><br>
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<div class="footer">
+  Vulnerable App for Cybersecurity Testing 😈
+</div>
+
+</body>
+</html>

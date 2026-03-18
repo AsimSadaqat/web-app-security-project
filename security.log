@@ -1,0 +1,27 @@
+2026-03-18 20:50:06,853 - INFO - Application started
+2026-03-18 20:50:07,202 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-18 20:50:07,202 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-18 20:50:07,224 - INFO -  * Restarting with stat
+2026-03-18 20:50:07,665 - INFO - Application started
+2026-03-18 20:50:07,687 - WARNING -  * Debugger is active!
+2026-03-18 20:50:07,693 - INFO -  * Debugger PIN: 126-366-847
+2026-03-18 20:50:20,060 - INFO - Application started
+2026-03-18 20:50:20,096 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-18 20:50:20,097 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-18 20:50:20,100 - INFO -  * Restarting with stat
+2026-03-18 20:50:20,327 - INFO - Application started
+2026-03-18 20:50:20,341 - WARNING -  * Debugger is active!
+2026-03-18 20:50:20,345 - INFO -  * Debugger PIN: 126-366-847
+2026-03-18 20:50:29,311 - WARNING - Failed login attempt: admin' OR '1'='1
+2026-03-18 20:50:29,313 - INFO - 127.0.0.1 - - [18/Mar/2026 20:50:29] "POST /login HTTP/1.1" 200 -
+2026-03-18 20:50:29,678 - INFO - 127.0.0.1 - - [18/Mar/2026 20:50:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-18 20:50:31,332 - INFO - 127.0.0.1 - - [18/Mar/2026 20:50:31] "GET /login HTTP/1.1" 200 -
+2026-03-18 20:50:48,040 - INFO - 127.0.0.1 - - [18/Mar/2026 20:50:48] "GET / HTTP/1.1" 200 -
+2026-03-18 20:51:09,202 - INFO - 127.0.0.1 - - [18/Mar/2026 20:51:09] "GET /login HTTP/1.1" 200 -
+2026-03-18 20:51:09,502 - INFO - 127.0.0.1 - - [18/Mar/2026 20:51:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-18 20:51:30,000 - INFO - 127.0.0.1 - - [18/Mar/2026 20:51:30] "GET / HTTP/1.1" 200 -
+2026-03-18 21:08:34,081 - INFO - 127.0.0.1 - - [18/Mar/2026 21:08:34] "GET /login HTTP/1.1" 200 -
+2026-03-18 21:08:34,132 - INFO - 127.0.0.1 - - [18/Mar/2026 21:08:34] "GET /static/style.css HTTP/1.1" 200 -
+2026-03-18 21:08:35,962 - INFO - 127.0.0.1 - - [18/Mar/2026 21:08:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
