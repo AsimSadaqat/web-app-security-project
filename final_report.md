@@ -2,26 +2,23 @@
 
 ---
 
-# 📌 1. Overview
+## 📌 1. Overview
 
 This project focuses on identifying, exploiting, and securing common vulnerabilities in a Flask-based web application.
-The goal was to understand real-world web security issues and implement defensive mechanisms to protect the application.
 
-The project was completed in multiple phases (Week 1–4), starting from vulnerability discovery to implementing strong security controls and testing them.
+The work was completed over **4 weeks**, progressing from vulnerability discovery to implementing strong defensive mechanisms and validating them through testing.
 
 ---
 
-# 🔍 2. Week 1–2: Vulnerability Identification
+## 🔍 2. Week 1–2: Vulnerability Identification
 
-During the initial phase, the application was tested for common security flaws.
-
-## 🔴 SQL Injection
+### 🔴 SQL Injection
 
 The login system was vulnerable to SQL Injection.
 
 **Payload used:**
 
-```
+```sql
 admin' OR '1'='1
 ```
 
@@ -30,15 +27,21 @@ admin' OR '1'='1
 * Authentication bypass
 * Unauthorized access
 
+📸 **Evidence:**
+
+![SQL Injection Input](screenshots/6_sql_injection_input.png)
+![SQL Injection Success](screenshots/7_sql_injection_success.png)
+![SQL Error](screenshots/5_sql_error.png)
+
 ---
 
-## 🔴 Cross-Site Scripting (XSS)
+### 🔴 Cross-Site Scripting (XSS)
 
 User input was not sanitized, allowing script execution.
 
 **Payload used:**
 
-```
+```html
 <script>alert('XSS')</script>
 ```
 
@@ -49,7 +52,7 @@ User input was not sanitized, allowing script execution.
 
 ---
 
-## 🔴 Weak Password Storage
+### 🔴 Weak Password Storage
 
 Passwords were stored in plain text.
 
@@ -60,90 +63,88 @@ Passwords were stored in plain text.
 
 ---
 
-## 🔴 Error-Based SQL Injection
+### 🔴 Error-Based SQL Injection
 
-Application exposed database errors.
+Application exposed raw database errors.
 
 **Impact:**
 
 * Information leakage
-* Helps attackers map database
+* Helps attackers map database structure
 
 ---
 
-# 🧪 3. Week 3: Testing & Exploitation
+## 🧪 3. Week 3: Testing & Exploitation
 
-The vulnerabilities were tested using:
+Vulnerabilities were tested using:
 
 * Manual browser testing
-* SQL Injection attacks
-* XSS payload execution
-* Database inspection (SQLite)
-* Optional OWASP ZAP scanning
+* SQL Injection payloads
+* XSS execution
+* SQLite database inspection
+* OWASP ZAP (optional)
 
-These tests confirmed that the application was vulnerable and exploitable.
+📸 **Evidence:**
+
+![Register Page](screenshots/1_ui_register_page.png)
+![User Registered](screenshots/2_user_registered_success.png)
+![Login Page](screenshots/3_ui_login_page.png)
+![Login Success](screenshots/4_normal_login_success.png)
 
 ---
 
-# 🛠️ 4. Week 3: Fixes Implemented
+## 🛠️ 4. Week 3: Fixes Implemented
 
-## 🔐 SQL Injection Prevention
+### 🔐 SQL Injection Prevention
 
-* Replaced raw queries with parameterized queries
+* Replaced raw SQL queries with **parameterized queries**
 
-## 🔐 Password Security
+### 🔐 Password Security
 
 * Implemented hashing using:
 
   * `generate_password_hash()`
   * `check_password_hash()`
 
-## 🔐 XSS Protection
+### 🔐 XSS Protection
 
-* Used:
+* Sanitized input using:
 
-  * `escape()` from markupsafe
+  * `escape()` from `markupsafe`
 
-## 🔐 Input Validation
+### 🔐 Input Validation
 
 * Enforced minimum username/password length
 
-## 🔐 Error Handling
+### 🔐 Error Handling
 
-* Prevented database error exposure
-
----
-
-# 🛡️ 5. Week 4: Security Hardening & Defensive Testing
-
-This phase focused on advanced security controls and testing.
+* Removed database error exposure to users
 
 ---
 
-## ⚡ Rate Limiting
+## 🛡️ 5. Week 4: Security Hardening & Defensive Testing
+
+### ⚡ Rate Limiting
 
 * Implemented using **Flask-Limiter**
 * Limit: **5 requests per minute**
 
 **Result:**
 
-* Prevents brute-force attacks
-* Returns:
-
 ```
 Too Many Requests
 ```
 
-📸 Evidence:
+📸 **Evidence:**
 
-* week4-rate-limit.png
+![Rate Limit](screenshots/week4/week4-rate-limit.png)
 
 ---
 
-## 🚫 Intrusion Detection (Account Lock)
+### 🚫 Intrusion Detection (Account Lock)
 
 * Tracks failed login attempts
-* Locks account after 5 failures
+* Locks account after **5 failed attempts**
 
 **Result:**
 
@@ -151,7 +152,59 @@ Too Many Requests
 Account temporarily locked due to multiple failed attempts
 ```
 
-📸 Evidence:
+📸 **Evidence:**
 
-* week4-account-lock-code.png
-* week4-account
+![Account Lock Code](screenshots/week4/week4-account-lock-code.png)
+
+---
+
+### 🔐 API Authorization Protection
+
+* Implemented authentication checks for API endpoints
+
+📸 **Evidence:**
+
+![API Authorized](screenshots/week4/week4-api-authorized.png)
+![API Unauthorized](screenshots/week4/week4-api-unauthorized.png)
+
+---
+
+### 🛡️ SQL Injection & XSS Protections Verified
+
+📸 **Evidence:**
+
+![SQL Injection Blocked](screenshots/week4/week4-sql-injection-blocked.png)
+![XSS Protection](screenshots/week4/week4-xss-protection.png)
+
+---
+
+## ✅ 6. Final Outcome
+
+After implementing all fixes and protections:
+
+* SQL Injection → **Mitigated**
+* XSS → **Prevented**
+* Password storage → **Secured (hashed)**
+* Brute force → **Blocked (rate limiting + lockout)**
+* API access → **Restricted**
+
+---
+
+## 📚 Key Takeaways
+
+* Never trust user input
+* Always use parameterized queries
+* Hash passwords — never store plain text
+* Apply layered security (defense in depth)
+* Test vulnerabilities before and after fixes
+
+---
+
+## 🚀 Future Improvements
+
+* Add JWT-based authentication
+* Implement CSRF protection
+* Integrate automated security testing in CI/CD
+* Deploy with HTTPS and secure headers
+
+---
