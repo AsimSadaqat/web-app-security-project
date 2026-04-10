@@ -25,3 +25,123 @@
 2026-03-18 21:08:34,081 - INFO - 127.0.0.1 - - [18/Mar/2026 21:08:34] "GET /login HTTP/1.1" 200 -
 2026-03-18 21:08:34,132 - INFO - 127.0.0.1 - - [18/Mar/2026 21:08:34] "GET /static/style.css HTTP/1.1" 200 -
 2026-03-18 21:08:35,962 - INFO - 127.0.0.1 - - [18/Mar/2026 21:08:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-31 21:04:21,159 - INFO - Application started
+2026-03-31 21:12:03,671 - INFO - Application started
+2026-03-31 21:12:04,016 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-31 21:12:04,016 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-31 21:12:04,025 - INFO -  * Restarting with stat
+2026-03-31 21:12:04,373 - INFO - Application started
+2026-03-31 21:12:04,388 - WARNING -  * Debugger is active!
+2026-03-31 21:12:04,393 - INFO -  * Debugger PIN: 119-463-730
+2026-03-31 21:16:11,604 - INFO -  * Detected change in 'c:\\Users\\qasim\\OneDrive\\Desktop\\HUB Project\\web-app security\\vuln-app\\app.py', reloading
+2026-03-31 21:16:11,795 - INFO -  * Restarting with stat
+2026-03-31 21:16:12,384 - INFO - Application started
+2026-03-31 21:16:12,427 - WARNING -  * Debugger is active!
+2026-03-31 21:16:12,432 - INFO -  * Debugger PIN: 119-463-730
+2026-03-31 21:16:21,101 - INFO - Application started
+2026-03-31 21:16:21,148 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-31 21:16:21,148 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-31 21:16:21,148 - INFO -  * Restarting with stat
+2026-03-31 21:16:21,603 - INFO - Application started
+2026-03-31 21:16:21,625 - WARNING -  * Debugger is active!
+2026-03-31 21:16:21,629 - INFO -  * Debugger PIN: 119-463-730
+2026-03-31 21:17:36,419 - INFO - Application started
+2026-03-31 21:17:36,445 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-31 21:17:36,445 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-31 21:17:36,445 - INFO -  * Restarting with stat
+2026-03-31 21:17:36,831 - INFO - Application started
+2026-03-31 21:17:36,843 - WARNING -  * Debugger is active!
+2026-03-31 21:17:36,847 - INFO -  * Debugger PIN: 119-463-730
+2026-04-01 20:17:45,990 - INFO - Application started
+2026-04-01 20:17:46,026 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-01 20:17:46,026 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-01 20:17:46,028 - INFO -  * Restarting with stat
+2026-04-01 20:17:46,341 - INFO - Application started
+2026-04-01 20:17:46,355 - WARNING -  * Debugger is active!
+2026-04-01 20:17:46,359 - INFO -  * Debugger PIN: 119-463-730
+2026-04-01 20:18:03,757 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:03] "GET /login HTTP/1.1" 200 -
+2026-04-01 20:18:04,094 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-04-01 20:18:05,722 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:05] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:18:06,385 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:06] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:18:06,560 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:06] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:18:06,712 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:06] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:18:10,206 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:10] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:18:10,935 - INFO - 127.0.0.1 - - [01/Apr/2026 20:18:10] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:19:42,782 - INFO - 127.0.0.1 - - [01/Apr/2026 20:19:42] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:19:43,658 - INFO - 127.0.0.1 - - [01/Apr/2026 20:19:43] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:19:43,825 - INFO - 127.0.0.1 - - [01/Apr/2026 20:19:43] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:19:44,136 - INFO - 127.0.0.1 - - [01/Apr/2026 20:19:44] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:25:39,995 - INFO -  * Detected change in 'c:\\Users\\qasim\\OneDrive\\Desktop\\HUB Project\\web-app security\\vuln-app\\app.py', reloading
+2026-04-01 20:25:40,142 - INFO -  * Restarting with stat
+2026-04-01 20:29:58,254 - INFO - Application started
+2026-04-01 20:29:58,356 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-01 20:29:58,356 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-01 20:29:58,356 - INFO -  * Restarting with stat
+2026-04-01 20:29:58,784 - INFO - Application started
+2026-04-01 20:29:58,806 - WARNING -  * Debugger is active!
+2026-04-01 20:29:58,810 - INFO -  * Debugger PIN: 119-463-730
+2026-04-01 20:30:17,598 - INFO - 127.0.0.1 - - [01/Apr/2026 20:30:17] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:30:36,573 - INFO - 127.0.0.1 - - [01/Apr/2026 20:30:36] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:30:36,912 - INFO - 127.0.0.1 - - [01/Apr/2026 20:30:36] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-01 20:31:38,173 - INFO - 127.0.0.1 - - [01/Apr/2026 20:31:38] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:31:39,088 - INFO - 127.0.0.1 - - [01/Apr/2026 20:31:39] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:31:39,263 - INFO - 127.0.0.1 - - [01/Apr/2026 20:31:39] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:31:39,409 - INFO - 127.0.0.1 - - [01/Apr/2026 20:31:39] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:31:39,573 - INFO - 127.0.0.1 - - [01/Apr/2026 20:31:39] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:31:39,746 - INFO - 127.0.0.1 - - [01/Apr/2026 20:31:39] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-01 20:31:40,449 - INFO - 127.0.0.1 - - [01/Apr/2026 20:31:40] "[33mGET /api/data%20 HTTP/1.1[0m" 404 -
+2026-04-10 15:19:35,403 - INFO - Application started
+2026-04-10 15:19:35,594 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-10 15:19:35,594 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-10 15:19:35,604 - INFO -  * Restarting with stat
+2026-04-10 15:19:36,068 - INFO - Application started
+2026-04-10 15:19:36,089 - WARNING -  * Debugger is active!
+2026-04-10 15:19:36,097 - INFO -  * Debugger PIN: 119-463-730
+2026-04-10 16:08:16,656 - INFO - Application started
+2026-04-10 16:08:16,901 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-10 16:08:16,901 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-10 16:08:16,915 - INFO -  * Restarting with stat
+2026-04-10 16:08:17,355 - INFO - Application started
+2026-04-10 16:08:17,375 - WARNING -  * Debugger is active!
+2026-04-10 16:08:17,385 - INFO -  * Debugger PIN: 119-463-730
+2026-04-10 16:08:30,826 - INFO - 127.0.0.1 - - [10/Apr/2026 16:08:30] "GET / HTTP/1.1" 200 -
+2026-04-10 16:08:31,110 - INFO - 127.0.0.1 - - [10/Apr/2026 16:08:31] "GET /static/style.css HTTP/1.1" 200 -
+2026-04-10 16:08:31,335 - INFO - 127.0.0.1 - - [10/Apr/2026 16:08:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-10 16:08:32,779 - INFO - 127.0.0.1 - - [10/Apr/2026 16:08:32] "GET /login HTTP/1.1" 200 -
+2026-04-10 16:08:32,821 - INFO - 127.0.0.1 - - [10/Apr/2026 16:08:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-04-10 16:09:00,156 - WARNING - Failed login attempt: testuser@example.com
+2026-04-10 16:09:00,157 - INFO - 127.0.0.1 - - [10/Apr/2026 16:09:00] "POST /login HTTP/1.1" 200 -
+2026-04-10 16:09:02,389 - INFO - 127.0.0.1 - - [10/Apr/2026 16:09:02] "GET /login HTTP/1.1" 200 -
+2026-04-10 16:19:44,317 - INFO - 127.0.0.1 - - [10/Apr/2026 16:19:44] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-10 16:25:57,324 - INFO - Application started
+2026-04-10 16:26:06,409 - INFO - Application started
+2026-04-10 16:26:06,473 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-10 16:26:06,473 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-10 16:26:06,486 - INFO -  * Restarting with stat
+2026-04-10 16:26:06,896 - INFO - Application started
+2026-04-10 16:26:06,910 - WARNING -  * Debugger is active!
+2026-04-10 16:26:06,919 - INFO -  * Debugger PIN: 119-463-730
+2026-04-10 16:26:09,730 - INFO - 127.0.0.1 - - [10/Apr/2026 16:26:09] "GET / HTTP/1.1" 200 -
+2026-04-10 16:26:10,187 - INFO - 127.0.0.1 - - [10/Apr/2026 16:26:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-04-10 16:30:51,014 - INFO - 127.0.0.1 - - [10/Apr/2026 16:30:51] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-10 16:34:05,519 - INFO - 127.0.0.1 - - [10/Apr/2026 16:34:05] "GET /api/data HTTP/1.1" 200 -
+2026-04-10 16:34:08,032 - INFO - 127.0.0.1 - - [10/Apr/2026 16:34:08] "GET /api/data HTTP/1.1" 200 -
+2026-04-10 16:34:22,523 - INFO - 127.0.0.1 - - [10/Apr/2026 16:34:22] "GET /api/data HTTP/1.1" 200 -
+2026-04-10 17:10:59,062 - INFO - 127.0.0.1 - - [10/Apr/2026 17:10:59] "[31m[1mGET /api/data HTTP/1.1[0m" 401 -
+2026-04-10 17:18:48,189 - INFO - Search query: test
+2026-04-10 17:18:48,205 - INFO - 127.0.0.1 - - [10/Apr/2026 17:18:48] "GET /search?q=test HTTP/1.1" 200 -
+2026-04-10 17:19:42,980 - INFO - Search query: <script>alert(1)</script>
+2026-04-10 17:19:42,994 - INFO - 127.0.0.1 - - [10/Apr/2026 17:19:42] "GET /search?q=<script>alert(1)</script> HTTP/1.1" 200 -
+2026-04-10 17:26:33,408 - INFO - 127.0.0.1 - - [10/Apr/2026 17:26:33] "GET /login HTTP/1.1" 200 -
+2026-04-10 17:26:33,514 - INFO - 127.0.0.1 - - [10/Apr/2026 17:26:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-04-10 17:27:18,983 - WARNING - Failed login attempt: admin' OR '1'='1
+2026-04-10 17:27:18,985 - INFO - 127.0.0.1 - - [10/Apr/2026 17:27:18] "POST /login HTTP/1.1" 200 -
+2026-04-10 17:31:54,110 - INFO - 127.0.0.1 - - [10/Apr/2026 17:31:54] "GET /login HTTP/1.1" 200 -

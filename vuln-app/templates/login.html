@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<div class="navbar">
-  <a href="/">Home</a>
-  <a href="/login">Login</a>
-  <a href="/register">Register</a>
-</div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/">Home</a>
+        </div>
+        <div class="nav-right">
+            <a href="/login">Login</a>
+        </div>
+    </nav>
 
-<div class="container">
-  <form method="POST">
-    <h2>Login</h2>
-    <input type="text" name="username" placeholder="Enter Username"><br>
-    <input type="text" name="password" placeholder="Enter Password"><br>
-    <button type="submit">Login</button>
-  </form>
-</div>
+    <!-- CENTERED LOGIN -->
+    <div class="center-container">
+        <div class="form-box">
+            <h2>Login</h2>
 
-<div class="footer">
-  Vulnerable App for Cybersecurity Testing 😈
-</div>
+            <form method="POST">
+                <input type="text" name="username" placeholder="Enter Username" required>
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <p class="form-text">Secure Cybersecurity Testing App</p>
+        </div>
+    </div>
 
 </body>
 </html>

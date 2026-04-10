@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/">Home</a>
+        </div>
+        <div class="nav-right">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </nav>
+
+    <!-- HOME CONTENT -->
+    <div class="home-container">
+        <h1>Secure Web Application</h1>
+        <p class="subtitle">Built with modern cybersecurity practices</p>
+
+        <!-- BUTTONS -->
+        <div class="home-buttons">
+            <a href="/login" class="btn">Login</a>
+            <a href="/register" class="btn secondary">Register</a>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="features">
+
+            <div class="feature-card">
+                <h3>Authentication</h3>
+                <p>Secure login with hashed passwords</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Protection</h3>
+                <p>SQL Injection & XSS prevention implemented</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Monitoring</h3>
+                <p>Logging and intrusion detection enabled</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

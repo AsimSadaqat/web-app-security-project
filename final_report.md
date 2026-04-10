@@ -1,137 +1,157 @@
 # 🛡️ Web Application Security Assessment Report
 
-## 📌 1. Overview
+---
 
-This project focuses on identifying and fixing common security vulnerabilities in a web application developed using Flask.  
-The objective was to perform basic vulnerability assessment, exploit weaknesses, and then implement security measures to protect the application.
+# 📌 1. Overview
+
+This project focuses on identifying, exploiting, and securing common vulnerabilities in a Flask-based web application.
+The goal was to understand real-world web security issues and implement defensive mechanisms to protect the application.
+
+The project was completed in multiple phases (Week 1–4), starting from vulnerability discovery to implementing strong security controls and testing them.
 
 ---
 
-## 🔍 2. Vulnerabilities Identified
+# 🔍 2. Week 1–2: Vulnerability Identification
 
-### 2.1 SQL Injection
+During the initial phase, the application was tested for common security flaws.
 
-The login functionality was vulnerable to SQL Injection.  
-An attacker could bypass authentication using malicious input.
+## 🔴 SQL Injection
 
-Example Payload:
+The login system was vulnerable to SQL Injection.
+
+**Payload used:**
+
+```
 admin' OR '1'='1
+```
 
-Impact:
-- Unauthorized access
-- Authentication bypass
+**Impact:**
+
+* Authentication bypass
+* Unauthorized access
 
 ---
 
-### 2.2 Cross-Site Scripting (XSS)
+## 🔴 Cross-Site Scripting (XSS)
 
-The application did not sanitize user input, allowing execution of JavaScript in the browser.
+User input was not sanitized, allowing script execution.
 
-Example Payload:
+**Payload used:**
+
+```
 <script>alert('XSS')</script>
+```
 
-Impact:
-- Execution of malicious scripts
-- Potential session hijacking
+**Impact:**
 
----
-
-### 2.3 Weak Password Storage
-
-User passwords were stored in plain text in the database.
-
-Impact:
-- Easy password exposure
-- Full account compromise if database is leaked
+* Execution of malicious scripts
+* Session hijacking risk
 
 ---
 
-### 2.4 Error-Based SQL Injection
+## 🔴 Weak Password Storage
 
-The application exposed database errors when invalid input was provided.
+Passwords were stored in plain text.
 
-Impact:
-- Information leakage
-- Helps attackers understand database structure
+**Impact:**
 
----
-
-## 🧪 3. Testing Performed
-
-The following testing methods were used:
-
-- Manual browser-based testing
-- SQL Injection testing using:
-  admin' OR '1'='1
-- XSS testing using:
-  <script>alert('XSS')</script>
-- Database inspection using SQLite Viewer
-- OWASP ZAP for automated vulnerability scanning (optional)
-
-These tests confirmed the presence of multiple vulnerabilities in the application.
+* Easy credential theft
+* Full account compromise
 
 ---
 
-## 🛠️ 4. Fixes Implemented
+## 🔴 Error-Based SQL Injection
 
-### 4.1 SQL Injection Prevention
-- Replaced dynamic SQL queries with parameterized queries
-- Prevented direct insertion of user input into SQL statements
+Application exposed database errors.
 
----
+**Impact:**
 
-### 4.2 Password Security
-- Implemented password hashing using werkzeug.security
-- Used generate_password_hash() and check_password_hash()
+* Information leakage
+* Helps attackers map database
 
 ---
 
-### 4.3 XSS Prevention
-- Sanitized user input using escape() from markupsafe
-- Prevented execution of injected scripts
+# 🧪 3. Week 3: Testing & Exploitation
+
+The vulnerabilities were tested using:
+
+* Manual browser testing
+* SQL Injection attacks
+* XSS payload execution
+* Database inspection (SQLite)
+* Optional OWASP ZAP scanning
+
+These tests confirmed that the application was vulnerable and exploitable.
 
 ---
 
-### 4.4 Input Validation
-- Added validation checks for username and password
-- Prevented invalid or weak inputs
+# 🛠️ 4. Week 3: Fixes Implemented
+
+## 🔐 SQL Injection Prevention
+
+* Replaced raw queries with parameterized queries
+
+## 🔐 Password Security
+
+* Implemented hashing using:
+
+  * `generate_password_hash()`
+  * `check_password_hash()`
+
+## 🔐 XSS Protection
+
+* Used:
+
+  * `escape()` from markupsafe
+
+## 🔐 Input Validation
+
+* Enforced minimum username/password length
+
+## 🔐 Error Handling
+
+* Prevented database error exposure
 
 ---
 
-### 4.5 Security Headers
-- Implemented Flask-Talisman
-- Added HTTP security headers to protect against common attacks
+# 🛡️ 5. Week 4: Security Hardening & Defensive Testing
+
+This phase focused on advanced security controls and testing.
 
 ---
 
-### 4.6 Logging System
-- Implemented logging using Python logging module
-- Recorded:
-  - User registrations
-  - Login attempts (success and failure)
-  - Search queries
+## ⚡ Rate Limiting
 
-Example log:
-INFO - User registered: admin  
-WARNING - Failed login attempt: attacker  
+* Implemented using **Flask-Limiter**
+* Limit: **5 requests per minute**
 
----
+**Result:**
 
-## ✅ 5. Security Checklist
+* Prevents brute-force attacks
+* Returns:
 
-- Input validation implemented
-- SQL Injection protection applied
-- Password hashing enabled
-- XSS protection implemented
-- Error handling improved
-- Logging system active
-- HTTPS recommended for production
+```
+Too Many Requests
+```
+
+📸 Evidence:
+
+* week4-rate-limit.png
 
 ---
 
-## 🧠 6. Conclusion
+## 🚫 Intrusion Detection (Account Lock)
 
-The application initially contained several critical vulnerabilities, including SQL Injection, XSS, and weak password storage.  
-After implementing proper security measures, the application is now significantly more secure and follows basic secure coding practices.
+* Tracks failed login attempts
+* Locks account after 5 failures
 
-This project demonstrates the importance of identifying vulnerabilities and applying appropriate fixes to build secure web applications.
+**Result:**
+
+```
+Account temporarily locked due to multiple failed attempts
+```
+
+📸 Evidence:
+
+* week4-account-lock-code.png
+* week4-account

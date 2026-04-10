@@ -1,16 +1,24 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import sqlite3
 import logging
 
-# ✅ Security imports
+# Security imports
 from werkzeug.security import generate_password_hash, check_password_hash
 from markupsafe import escape
 from flask_talisman import Talisman
 
+# Rate Limiting
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+# NEW: CORS
+
+from flask_cors import CORS
+
 app = Flask(__name__)
 
 # =========================
-# 🧾 LOGGING CONFIGURATION
+# LOGGING CONFIGURATION
 # =========================
 logging.basicConfig(
     filename='security.log',
@@ -21,12 +29,33 @@ logging.basicConfig(
 logging.info("Application started")
 
 # =========================
-# 🛡️ SECURITY HEADERS
+# SECURITY HEADERS (CSP ENABLED)
 # =========================
 Talisman(app)
 
 # =========================
-# 📦 DATABASE SETUP
+# CORS CONFIGURATION
+# =========================
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5000"}})
+
+# =========================
+# API KEY (SIMPLE SECURITY)
+# =========================
+API_KEY = "secret123"
+
+# =========================
+# RATE LIMITER
+# =========================
+limiter = Limiter(key_func=get_remote_address)
+limiter.init_app(app)
+
+# =========================
+# LOGIN ATTEMPT TRACKING
+# =========================
+failed_attempts = {}
+
+# =========================
+# DATABASE SETUP
 # =========================
 def init_db():
     conn = sqlite3.connect('users.db')
@@ -39,14 +68,14 @@ def init_db():
 init_db()
 
 # =========================
-# 🏠 HOME
+# HOME
 # =========================
 @app.route('/')
 def home():
-    return "Welcome to Secure App 🛡️"
+    return render_template('home.html')
 
 # =========================
-# 🔐 REGISTER (SECURED)
+# REGISTER
 # =========================
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -54,7 +83,6 @@ def register():
         username = request.form['username']
         password = request.form['password']
 
-        # ✅ Validation
         if len(username) < 3:
             logging.warning("Invalid username attempt")
             return "Invalid username (min 3 characters)"
@@ -66,10 +94,6 @@ def register():
         conn = sqlite3.connect('users.db')
         c = conn.cursor()
 
-        # ❌ OLD VULNERABLE CODE
-        # c.execute(f"INSERT INTO users VALUES ('{username}', '{password}')")
-
-        # ✅ SECURE VERSION
         hashed_password = generate_password_hash(password)
         c.execute("INSERT INTO users VALUES (?, ?)", (username, hashed_password))
 
@@ -83,53 +107,64 @@ def register():
     return render_template('register.html')
 
 # =========================
-# 🔐 LOGIN (SECURED)
+# LOGIN (RATE LIMITED)
 # =========================
 @app.route('/login', methods=['GET', 'POST'])
+@limiter.limit("5 per minute")
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
+        if username not in failed_attempts:
+            failed_attempts[username] = 0
+
+        if failed_attempts[username] >= 5:
+            return "Account temporarily locked due to multiple failed attempts"
+
         conn = sqlite3.connect('users.db')
         c = conn.cursor()
 
-        # ❌ OLD VULNERABLE CODE
-        # query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
-        # result = c.execute(query).fetchone()
-
-        # ✅ SECURE VERSION
         c.execute("SELECT * FROM users WHERE username=?", (username,))
         user = c.fetchone()
 
         conn.close()
 
         if user and check_password_hash(user[1], password):
+            failed_attempts[username] = 0
             logging.info(f"Successful login: {username}")
             return f"Welcome {username}"
         else:
+            failed_attempts[username] += 1
             logging.warning(f"Failed login attempt: {username}")
             return "Login Failed"
 
     return render_template('login.html')
 
 # =========================
-# 🔐 XSS FIXED
+# SEARCH (XSS PROTECTED)
 # =========================
 @app.route('/search')
 def search():
     query = request.args.get('q', '')
-
     logging.info(f"Search query: {query}")
-
-    # ❌ OLD VULNERABLE CODE
-    # return f"You searched for: {query}"
-
-    # ✅ SECURE VERSION
     return f"You searched for: {escape(query)}"
 
 # =========================
-# 🚀 RUN SERVER
+# 🔐 PROTECTED API ENDPOINT
+# =========================
+
+@app.route('/api/data')
+def api_data():
+    api_key = request.headers.get('x-api-key')  
+
+    if api_key != "secret123":
+        return {"error": "Unauthorized"}, 401
+
+    return {"message": "Secure API Access Granted"}
+# =========================
+# RUN SERVER
 # =========================
 if __name__ == '__main__':
+    print("Server running at: http://127.0.0.1:5000")
     app.run(debug=True)
