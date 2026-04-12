@@ -38,7 +38,6 @@ In this phase, advanced security mechanisms were implemented to protect the appl
 ![Account Lock Code](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-account-lock-code.png)
 
 
-![Account Lock Output](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-account-lock-output.png)
 
 ---
 
