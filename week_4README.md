@@ -60,6 +60,8 @@ x-api-key: secret123
 ```
 
 📸 Screenshots
+
+
 ![API Unauthorized](screenshots/week4/week4-api-unauthorized.png)
 ![API Authorized](screenshots/week4/week4-api-authorized.png)
 
@@ -104,6 +106,7 @@ Payload used:
 * No JavaScript execution
 
 📸 Screenshot
+
 ![XSS Protection](screenshots/week4/week4-xss-protection.png)
 
 ---
@@ -122,6 +125,7 @@ admin' OR '1'='1
 * Injection attempt blocked
 
 📸 Screenshot
+
 ![SQL Injection Blocked](screenshots/week4/week4-sql-injection-blocked.png)
 
 ---
