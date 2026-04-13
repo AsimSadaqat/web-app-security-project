@@ -1120,3 +1120,20 @@
 2026-04-13 16:03:26,068 - INFO - The CSRF token is missing.
 2026-04-13 16:03:26,072 - INFO - 127.0.0.1 - - [13/Apr/2026 16:03:26] "[31m[1mPOST /register HTTP/1.1[0m" 400 -
 2026-04-13 16:03:26,335 - INFO - 127.0.0.1 - - [13/Apr/2026 16:03:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-13 18:19:54,126 - INFO - Application started
+2026-04-13 18:19:54,606 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-13 18:19:54,606 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-13 18:19:54,644 - INFO -  * Restarting with stat
+2026-04-13 18:19:55,437 - INFO - Application started
+2026-04-13 18:19:55,476 - WARNING -  * Debugger is active!
+2026-04-13 18:19:55,488 - INFO -  * Debugger PIN: 119-463-730
+2026-04-13 18:19:58,381 - INFO - 127.0.0.1 - - [13/Apr/2026 18:19:58] "GET / HTTP/1.1" 200 -
+2026-04-13 18:19:58,998 - INFO - 127.0.0.1 - - [13/Apr/2026 18:19:58] "GET /static/style.css HTTP/1.1" 200 -
+2026-04-13 18:19:59,136 - INFO - 127.0.0.1 - - [13/Apr/2026 18:19:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-13 23:11:14,148 - INFO -  * Detected change in 'c:\\Users\\qasim\\OneDrive\\Desktop\\HUB Project\\web-app security\\vuln-app\\app.py', reloading
+2026-04-13 23:11:14,476 - INFO -  * Restarting with stat
+2026-04-13 23:11:19,429 - INFO - Application started
+2026-04-13 23:11:19,524 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-13 23:11:19,524 - INFO - [33mPress CTRL+C to quit[0m

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import logging
+import os
 from flask_wtf import CSRFProtect
 
 # Security imports
@@ -12,12 +13,15 @@ from flask_talisman import Talisman
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
-# NEW: CORS
-
+# CORS
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'supersecretkey'
+
+# =========================
+# SECRET KEY (SECURE)
+# =========================
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret')
 csrf = CSRFProtect(app)
 
 # =========================
@@ -26,15 +30,38 @@ csrf = CSRFProtect(app)
 logging.basicConfig(
     filename='security.log',
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filemode='a'
 )
 
 logging.info("Application started")
 
 # =========================
-# SECURITY HEADERS (CSP ENABLED)
+# SECURITY HEADERS (STRONG CSP)
 # =========================
-Talisman(app)
+csp = {
+    'default-src': ["'self'"],
+    'script-src': ["'self'"],
+    'style-src': ["'self'"],
+    'img-src': ["'self'", "data:"],
+    'object-src': ["'none'"],
+    'base-uri': ["'self'"],
+    'frame-ancestors': ["'none'"]
+}
+
+Talisman(
+    app,
+    content_security_policy=csp,
+    force_https=False  # keep False for local testing
+)
+
+# =========================
+# REMOVE SERVER HEADER
+# =========================
+@app.after_request
+def remove_server_header(response):
+    response.headers['Server'] = 'SecureServer'
+    return response
 
 # =========================
 # CORS CONFIGURATION
@@ -156,18 +183,18 @@ def search():
 # =========================
 # 🔐 PROTECTED API ENDPOINT
 # =========================
-
 @app.route('/api/data')
 def api_data():
     api_key = request.headers.get('x-api-key')  
 
-    if api_key != "secret123":
+    if api_key != API_KEY:
         return {"error": "Unauthorized"}, 401
 
     return {"message": "Secure API Access Granted"}
+
 # =========================
 # RUN SERVER
 # =========================
 if __name__ == '__main__':
     print("Server running at: http://127.0.0.1:5000")
-    app.run(debug=True)
+    app.run(debug=False)
