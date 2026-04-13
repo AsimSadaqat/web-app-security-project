@@ -7,13 +7,11 @@
 This project focuses on identifying, exploiting, and securing common vulnerabilities in a Flask-based web application.
 The goal was to understand real-world web security issues and implement defensive mechanisms to protect the application.
 
-The project was completed in multiple phases (Week 1–4), starting from vulnerability discovery to implementing strong security controls and testing them.
+The project was completed in multiple phases (Week 1–5), starting from vulnerability discovery to implementing strong security controls and testing them.
 
 ---
 
 # 🔍 2. Week 1–2: Vulnerability Identification
-
-During the initial phase, the application was tested for common security flaws.
 
 ## 🔴 SQL Injection
 
@@ -116,10 +114,6 @@ These tests confirmed that the application was vulnerable and exploitable.
 
 # 🛡️ 5. Week 4: Security Hardening & Defensive Testing
 
-This phase focused on advanced security controls and testing.
-
----
-
 ## ⚡ Rate Limiting
 
 * Implemented using **Flask-Limiter**
@@ -128,15 +122,11 @@ This phase focused on advanced security controls and testing.
 **Result:**
 
 * Prevents brute-force attacks
-* Returns:
+* Returns: `Too Many Requests`
 
-```
-Too Many Requests
-```
+### 📸 Evidence
 
-📸 Evidence:
-
-* week4-rate-limit.png
+![Rate Limit](screenshots/week4/week4-rate-limit.png)
 
 ---
 
@@ -151,43 +141,84 @@ Too Many Requests
 Account temporarily locked due to multiple failed attempts
 ```
 
-📸 Evidence:
+### 📸 Evidence
 
-* week4-account-lock-code.png
-* week4-account
+![Account Lock](screenshots/week4/week4-account-lock-code.png)
 
 ---
 
-# 6. 🗓️ Week 5: Ethical Hacking & Exploiting Vulnerabilities
+## 🔐 Additional Protections
+
+### API Authorization
+
+![Authorized](screenshots/week4/week4-api-authorized.png)
+![Unauthorized](screenshots/week4/week4-api-unauthorized.png)
+
+---
+
+### SQL Injection Protection
+
+![SQL Injection Blocked](screenshots/week4/week4-sql-injection-blocked.png)
+
+---
+
+### XSS Protection
+
+![XSS Protection](screenshots/week4/week4-xss-protection.png)
+
+---
+
+# 🗓️ 6. Week 5: Ethical Hacking & Exploiting Vulnerabilities
 
 ## 🎯 Objective
 
-The objective of Week 5 was to perform ethical hacking on the developed web application, identify potential vulnerabilities, exploit them in a controlled environment, and implement proper security measures to mitigate risks.
+The objective of Week 5 was to perform ethical hacking on the developed web application, identify potential vulnerabilities, exploit them in a controlled environment, and implement proper security measures.
 
 ---
 
-## 🔍 5.1 Reconnaissance & Application Analysis
+## 🔍 6.1 Reconnaissance & Application Analysis
 
-The application was analyzed to identify available attack surfaces, including:
+The application was analyzed to identify attack surfaces:
 
-- Home Page
-- Login System
-- Registration Form
-- API Endpoints
+* Home Page
+* Login System
+* Registration Form
+* API Endpoints
 
 ### 📸 Screenshots
 
-![Home Page](screenshots/week5-home.png)  
-![Login Page](screenshots/week5-login.png)  
-![Register Page](screenshots/week5-register.png)
+![Home Page](screenshots/week5/week5-home.png)
+![Login Page](screenshots/week5/week5-login.png)
+![Register Page](screenshots/week5/week5-register.png)
 
 ---
 
-## 💉 5.2 SQL Injection Testing (SQLMap)
+## 💉 6.2 SQL Injection Testing (SQLMap)
 
-SQL Injection testing was performed using SQLMap to detect any injection vulnerabilities.
+SQL Injection testing was performed using SQLMap.
 
 ### 🔧 Command Used:
 
 ```bash
 python sqlmap.py -u "http://127.0.0.1:5000/login" --data="username=test&password=test" --batch
+```
+
+### 📸 Evidence
+
+![SQLMap Result 1](screenshots/week5/week5-sqlmap-result-part1.png)
+![SQLMap Result 2](screenshots/week5/week5-sqlmap-result-part2.png)
+
+---
+
+# 🛡️ 7. Conclusion
+
+This project demonstrated how common web vulnerabilities can be identified, exploited, and mitigated.
+
+### ✅ Key Learnings:
+
+* Importance of input validation
+* Secure password storage
+* Protection against SQL Injection & XSS
+* Implementation of rate limiting and intrusion detection
+
+The application evolved from a vulnerable system to a more secure and production-ready application.
