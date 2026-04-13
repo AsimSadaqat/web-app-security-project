@@ -24,7 +24,7 @@ In this phase, advanced security mechanisms were implemented to protect the appl
 
 📸 Screenshot:
 
-* `screenshots/week4/week4-rate-limit.png`
+![Rate Limit](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-rate-limit.png)
 
 ---
 
@@ -35,8 +35,9 @@ In this phase, advanced security mechanisms were implemented to protect the appl
 
 📸 Screenshots:
 
-* `screenshots/week4/week4-account-lock-code.png`
-* `screenshots/week4/week4-account-lock-output.png`
+![Account Lock Code](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-account-lock-code.png)
+
+
 
 ---
 
@@ -67,8 +68,9 @@ x-api-key: secret123
 
 📸 Screenshots:
 
-* `screenshots/week4/week4-api-unauthorized.png`
-* `screenshots/week4/week4-api-authorized.png`
+![API Unauthorized](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-api-unauthorized.png)
+
+![API Authorized](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-api-authorized.png)
 
 ---
 
@@ -112,7 +114,7 @@ Result:
 
 📸 Screenshot:
 
-* `screenshots/week4/week4-xss-protection.png`
+![XSS Protection](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-xss-protection.png)
 
 ---
 
@@ -131,7 +133,7 @@ Result:
 
 📸 Screenshot:
 
-* `screenshots/week4/week4-sql-injection-blocked.png`
+![SQL Injection Blocked](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-sql-injection-blocked.png)
 
 ---
 
@@ -153,7 +155,6 @@ Result:
 
 Week 4 successfully enhanced the application by implementing multiple layers of security.
 The system is now protected against common web vulnerabilities and follows secure coding practices.
-
 
 
 
