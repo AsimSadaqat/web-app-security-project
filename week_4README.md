@@ -27,7 +27,7 @@ This phase focused on implementing defensive controls and validating them throug
 * Locks account after 5 failed attempts
 
 📸 Screenshots
-![Account Lock Code](screenshots/week4/week4-account-lock-code.png)
+![Account Lock Code](screenshots/week4/week4-account-lock-code%20\(6\).png)
 ![Account Lock Output](screenshots/week4/week4-account-lock-output.png)
 
 ---
