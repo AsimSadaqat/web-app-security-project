@@ -133,23 +133,6 @@ CSRF vulnerability was identified, exploited, and successfully mitigated using C
 
 This demonstrates both offensive and defensive security skills.
 
----
-
-## 📁 Project Structure
-
-```
-screenshots/
-└── week5/
-    ├── week5-home.png
-    ├── week5-login.png
-    ├── week5-register.png
-    ├── week5-sqlmap-result-part1.png
-    ├── week5-sqlmap-result-part2.png
-    ├── week5-csrf-attack-success.png
-    └── week5-csrf-protection-blocked.png
-```
-
-
 
 
 
