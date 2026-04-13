@@ -1,38 +1,51 @@
 # 🛡️ Week 5: Ethical Hacking & Exploiting Vulnerabilities
 
 ## 📌 Objective
-Perform ethical hacking on the Flask web app, test vulnerabilities, and apply security fixes.
+
+The goal of Week 5 was to perform ethical hacking on the developed web application, identify vulnerabilities, exploit them in a controlled environment, and implement proper security defenses.
 
 ---
 
-## 🔍 1. Reconnaissance (Basic Testing)
+## 🔍 1. Application Overview
 
-Explored available endpoints:
+The target is a Flask-based web application with:
+
+- User Registration
+- Login System
+- API Endpoint Protection
+- Input Validation & Security Controls
+
+---
+
+## 🧪 2. Reconnaissance (Basic Testing)
+
+Initial testing included exploring all available endpoints:
 
 - Home Page
 - Login Page
 - Register Page
-- API Endpoint (`/api/data`)
+- API endpoints
 
----
-
-## 📸 Screenshots
+### 📸 Screenshots
 
 ### 🏠 Home Page
-https://github.com/AsimSadaqat/web-app-security-project/blob/main/screenshots/week5/week5-home.png
+![Home Page](screenshots/week5/week5-home.png)
 
 ### 🔐 Login Page
-https://github.com/AsimSadaqat/web-app-security-project/blob/main/screenshots/week5/week5-login.png
+![Login Page](screenshots/week5/week5-login.png)
+
 ### 📝 Register Page
-https://github.com/AsimSadaqat/web-app-security-project/blob/main/screenshots/week5/week5-register.png
+![Register Page](screenshots/week5/week5-register.png)
+
 ---
 
-## 💉 2. SQL Injection Testing (SQLMap)
+## 💉 3. SQL Injection Testing (SQLMap)
 
-### 🛠 Tool Used:
+### 🔧 Tool Used:
 - SQLMap
 
-### 💻 Command:
+### 🧪 Command Used:
+
 ```bash
 python sqlmap.py -u "http://127.0.0.1:5000/login" --data="username=test&password=test" --batch
 
