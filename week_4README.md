@@ -1,84 +1,73 @@
-# 🛡️ Web Application Security Project
+# 🔐 Week 4: Security Hardening & Defensive Testing
 
 ## 📌 Overview
 
-This project demonstrates the identification, exploitation, and mitigation of common web application vulnerabilities using a Flask-based application.
+In Week 4, the application was enhanced with advanced security mechanisms to protect against common web attacks such as brute-force, unauthorized access, SQL Injection, and Cross-Site Scripting (XSS).
 
-The project is divided into multiple phases (Week 1–4), progressing from vulnerability discovery to implementing strong security defenses and testing them.
-
----
-
-# 📅 Week 4: Security Hardening & Defensive Testing
-
-In this phase, advanced security mechanisms were implemented to protect the application against real-world attacks such as brute-force, XSS, SQL Injection, and unauthorized API access.
+This phase focused on implementing defensive controls and validating them through testing.
 
 ---
 
 ## 🛡️ Security Features Implemented
 
-### ⚡ Rate Limiting
+### ⚡ 1. Rate Limiting
 
 * Implemented using **Flask-Limiter**
 * Limit set to **5 requests per minute**
-* Protects against brute-force login attempts
+* Protects against brute-force attacks
 
-📸 Screenshot:
-
-![Rate Limit](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-rate-limit.png)
+📸 Screenshot
+![Rate Limit](screenshots/week4/week4-rate-limit.png)
 
 ---
 
-### 🚫 Intrusion Detection (Account Lock)
+### 🚫 2. Intrusion Detection (Account Lock)
 
 * Tracks failed login attempts
 * Locks account after 5 failed attempts
 
-📸 Screenshots:
-
-![Account Lock Code](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-account-lock-code.png)
-
-
+📸 Screenshots
+![Account Lock Code](screenshots/week4/week4-account-lock-code.png)
+![Account Lock Output](screenshots/week4/week4-account-lock-output.png)
 
 ---
 
-### 🔐 API Security
+### 🔐 3. API Security
 
-* Protected endpoint: `/api/data`
-* API key authentication implemented
+* Protected API endpoint: `/api/data`
+* Implemented API key authentication
 
-#### API Key:
+#### 🔑 API Key
 
-```
+```text
 x-api-key: secret123
 ```
 
-#### Responses:
+#### Responses
 
 * Unauthorized:
 
-```
+```json
 {"error": "Unauthorized"}
 ```
 
 * Authorized:
 
-```
+```json
 {"message": "Secure API Access Granted"}
 ```
 
-📸 Screenshots:
-
-![API Unauthorized](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-api-unauthorized.png)
-
-![API Authorized](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-api-authorized.png)
+📸 Screenshots
+![API Unauthorized](screenshots/week4/week4-api-unauthorized.png)
+![API Authorized](screenshots/week4/week4-api-authorized.png)
 
 ---
 
-### 🌐 CORS Configuration
+### 🌐 4. CORS Configuration
 
 * Restricted API access to:
 
-```
+```text
 http://localhost:5000
 ```
 
@@ -86,7 +75,7 @@ http://localhost:5000
 
 ---
 
-### 🧱 Security Headers (CSP)
+### 🧱 5. Security Headers & CSP
 
 * Implemented using **Flask-Talisman**
 * Enabled:
@@ -103,18 +92,17 @@ http://localhost:5000
 
 Payload used:
 
-```
+```html
 <script>alert(1)</script>
 ```
 
-Result:
+### Result:
 
-* Displayed as plain text
-* No JavaScript execution occurred
+* Rendered as plain text
+* No JavaScript execution
 
-📸 Screenshot:
-
-![XSS Protection](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-xss-protection.png)
+📸 Screenshot
+![XSS Protection](screenshots/week4/week4-xss-protection.png)
 
 ---
 
@@ -122,41 +110,38 @@ Result:
 
 Payload used:
 
-```
+```text
 admin' OR '1'='1
 ```
 
-Result:
+### Result:
 
 * Login failed
 * Injection attempt blocked
 
-📸 Screenshot:
-
-![SQL Injection Blocked](https://raw.githubusercontent.com/AsimSadaqat/web-app-security-project/main/screenshots/week4/week4-sql-injection-blocked.png)
+📸 Screenshot
+![SQL Injection Blocked](screenshots/week4/week4-sql-injection-blocked.png)
 
 ---
 
 ## 📊 Summary
 
-| Security Feature       | Status        |
-| ---------------------- | ------------- |
-| Rate Limiting          | ✅ Implemented |
-| Account Lock           | ✅ Working     |
-| API Security           | ✅ Secured     |
-| CORS                   | ✅ Configured  |
-| Security Headers (CSP) | ✅ Enabled     |
-| XSS Protection         | ✅ Tested      |
-| SQL Injection          | ✅ Tested      |
+| Security Feature | Status        |
+| ---------------- | ------------- |
+| Rate Limiting    | ✅ Implemented |
+| Account Lock     | ✅ Working     |
+| API Security     | ✅ Secured     |
+| CORS             | ✅ Configured  |
+| Security Headers | ✅ Enabled     |
+| XSS Protection   | ✅ Tested      |
+| SQL Injection    | ✅ Tested      |
 
 ---
 
 ## 🚀 Conclusion
 
-Week 4 successfully enhanced the application by implementing multiple layers of security.
-The system is now protected against common web vulnerabilities and follows secure coding practices.
-
-
+Week 4 successfully strengthened the application by implementing multiple layers of security.
+The system is now protected against common web vulnerabilities and demonstrates secure coding practices.
 
 
 
