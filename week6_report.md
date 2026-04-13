@@ -57,13 +57,17 @@ This report presents the results of security testing performed on the web applic
 * **Risk Level:** Low
 
 * **Description:**
-  The `X-Content-Type-Options` header is not set, allowing browsers to guess content types (MIME sniffing).
+  The `X-Content-Type-Options` header is not set, allowing browsers to guess content types.
 
 * **Impact:**
-  Can lead to incorrect content interpretation and security risks.
+  Can lead to security risks.
 
 * **Fix:**
-  Add the header `X-Content-Type-Options: nosniff`.
+  Add:
+
+```
+X-Content-Type-Options: nosniff
+```
 
 ---
 
@@ -74,13 +78,13 @@ This report presents the results of security testing performed on the web applic
 * **Risk Level:** Medium
 
 * **Description:**
-  Several system services were marked as "UNSAFE", increasing the attack surface.
+  Several system services were marked as unsafe.
 
 * **Impact:**
-  Unnecessary or insecure services may be exploited by attackers.
+  Increases attack surface.
 
 * **Fix:**
-  Disable or secure unnecessary services.
+  Disable unnecessary services.
 
 ---
 
@@ -90,16 +94,11 @@ This report presents the results of security testing performed on the web applic
 
 * **Risk Level:** Medium
 
-* **Description:**
-  The system does not have fail2ban installed to protect against brute-force attacks.
-
-* **Impact:**
-  Attackers can attempt unlimited login attempts.
-
 * **Fix:**
-  Install fail2ban using:
 
-  sudo apt install fail2ban
+```bash
+sudo apt install fail2ban
+```
 
 ---
 
@@ -109,66 +108,7 @@ This report presents the results of security testing performed on the web applic
 
 * **Risk Level:** Informational
 
-* **Description:**
-  Nikto reported the presence of `/wp-config.php`, but the application is not using WordPress.
-
-* **Impact:**
-  No real impact.
-
-* **Fix:**
-  Ignore this result.
-
----
-
-## 🛡️ OWASP Top 10 Mapping
-
-The identified vulnerabilities were mapped to OWASP Top 10 categories:
-
-* **A05: Security Misconfiguration**
-
-  * Missing Content Security Policy (CSP)
-  * Missing security headers (X-Content-Type-Options)
-  * Exposure of server version information
-
-* **A02: Cryptographic Failures**
-
-  * Weak or missing system-level protections (Lynis findings)
-
-* **A03: Injection**
-
-  * Previously tested in earlier phases (Week 1–3)
-
-* **A07: Identification and Authentication Failures**
-
-  * Missing brute-force protection (fail2ban not installed)
-
-* **A09: Security Logging and Monitoring Failures**
-
-  * Limited monitoring and alerting mechanisms
-
----
-
-## 🚀 Secure Deployment Practices
-
-The following secure deployment measures were considered:
-
-* Enabled system updates using:
-  sudo apt update && sudo apt upgrade
-
-* Recommended dependency and vulnerability scanning tools:
-
-  * pip-audit
-  * safety
-
-* Suggested container security practices:
-
-  * Scan Docker images using tools like Trivy
-  * Avoid running containers as root
-  * Use minimal base images
-
-* Followed least privilege principle for system services
-
-* Identified missing protections (fail2ban) and recommended installation
+* No real impact — safe to ignore.
 
 ---
 
@@ -176,27 +116,31 @@ The following secure deployment measures were considered:
 
 ### 🔹 OWASP ZAP
 
-![ZAP Scan](Week6-Screenshots/ZAP/01_ZAP_Automated_Scan_Start.png)
-![CSP Issue](Week6-Screenshots/ZAP/02_ZAP_CSP_Vulnerability_Details.png)
-![Server Leak](Week6-Screenshots/ZAP/03_ZAP_Server_Header_Leak.png)
-![Alerts](Week6-Screenshots/ZAP/04_ZAP_Alerts_Details_View.png)
+![ZAP Scan](screenshots/week6/01_ZAP_Automated_Scan_Start.png)
+![CSP Issue](screenshots/week6/02_ZAP_CSP_Vulnerability_Details.png)
+![Server Leak](screenshots/week6/03_ZAP_Server_Header_Leak.png)
+![Alerts](screenshots/week6/04_ZAP_Alerts_Details_View.png)
+
+---
 
 ### 🔹 Nikto
 
-![Nikto Scan](Week6-Screenshots/Nikto/01_Nikto_Scan_Result.png)
+![Nikto Scan](screenshots/week6/01_Nikto_Scan_Result.png)
+
+---
 
 ### 🔹 Lynis
 
-![Lynis Init](Week6-Screenshots/Lynis/01_Lynis_Initialization.png)
-![System Info](Week6-Screenshots/Lynis/02_Lynis_System_Info.png)
-![Debian Tests](Week6-Screenshots/Lynis/03_Lynis_Debian_Tests.png)
-![Services](Week6-Screenshots/Lynis/04_Lynis_Services_Analysis.png)
-![Service Risks](Week6-Screenshots/Lynis/05_Lynis_Service_Risks.png)
-![Kernel](Week6-Screenshots/Lynis/06_Lynis_Kernel_Checks.png)
-![Users](Week6-Screenshots/Lynis/07_Lynis_Users_Authentication.png)
-![Filesystem](Week6-Screenshots/Lynis/08_Lynis_File_System_Checks.png)
-![USB](Week6-Screenshots/Lynis/09_Lynis_USB_Storage.png)
-![Network](Week6-Screenshots/Lynis/10_Lynis_Network_Services.png)
+![Lynis Init](screenshots/week6/01_Lynis_Initialization.png)
+![System Info](screenshots/week6/02_Lynis_System_Info.png)
+![Debian Tests](screenshots/week6/03_Lynis_Debian_Tests.png)
+![Services](screenshots/week6/04_Lynis_Services_Analysis.png)
+![Service Risks](screenshots/week6/05_Lynis_Service_Risks.png)
+![Kernel](screenshots/week6/06_Lynis_Kernel_Checks.png)
+![Users](screenshots/week6/07_Lynis_Users_Authentication.png)
+![Filesystem](screenshots/week6/08_Lynis_File_System_Checks.png)
+![USB](screenshots/week6/09_Lynis_USB_Storage.png)
+![Network](screenshots/week6/10_Lynis_Network_Services.png)
 
 ---
 
@@ -206,14 +150,15 @@ The following secure deployment measures were considered:
 * Removed sensitive server headers
 * Disabled debug mode
 * Added secure secret key handling
-* Implemented input validation and output escaping
-* Enabled rate limiting for login attempts
-* Identified system-level weaknesses using Lynis
+* Implemented input validation
+* Enabled rate limiting
+* Identified system risks using Lynis
 
 ---
 
 ## 🧠 Conclusion
 
-The application was successfully tested using multiple security tools including OWASP ZAP, Nikto, and Lynis. Several vulnerabilities were identified and mitigated, improving the overall security posture of the system. The application now follows secure coding practices and is more resilient against common web attacks.
+The application was successfully tested using OWASP ZAP, Nikto, and Lynis.
+Vulnerabilities were identified and mitigated, improving the overall security posture of the system.
 
 ---
