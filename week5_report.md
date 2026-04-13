@@ -19,14 +19,12 @@ Explored available endpoints:
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home](../screenshots/week-5/week5-home.png)
+https://github.com/AsimSadaqat/web-app-security-project/blob/main/screenshots/week5/week5-home.png
 
 ### 🔐 Login Page
-![Login](../screenshots/week-5/week5-login.png)
-
+https://github.com/AsimSadaqat/web-app-security-project/blob/main/screenshots/week5/week5-login.png
 ### 📝 Register Page
-![Register](../screenshots/week-5/week5-register.png)
-
+https://github.com/AsimSadaqat/web-app-security-project/blob/main/screenshots/week5/week5-register.png
 ---
 
 ## 💉 2. SQL Injection Testing (SQLMap)
@@ -37,3 +35,13 @@ Explored available endpoints:
 ### 💻 Command:
 ```bash
 python sqlmap.py -u "http://127.0.0.1:5000/login" --data="username=test&password=test" --batch
+
+
+
+
+
+
+
+
+
+
