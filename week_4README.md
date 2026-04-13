@@ -17,6 +17,7 @@ This phase focused on implementing defensive controls and validating them throug
 * Protects against brute-force attacks
 
 📸 Screenshot
+
 ![Rate Limit](screenshots/week4/week4-rate-limit.png)
 
 ---
@@ -27,6 +28,7 @@ This phase focused on implementing defensive controls and validating them throug
 * Locks account after 5 failed attempts
 
 📸 Screenshots
+
 ![Account Lock Code](screenshots/week4/week4-account-lock-code%20\(6\).png)
 
 
