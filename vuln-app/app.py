@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import logging
+from flask_wtf import CSRFProtect
 
 # Security imports
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -16,6 +17,8 @@ from flask_limiter.util import get_remote_address
 from flask_cors import CORS
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'supersecretkey'
+csrf = CSRFProtect(app)
 
 # =========================
 # LOGGING CONFIGURATION

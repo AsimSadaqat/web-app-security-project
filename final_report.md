@@ -2,23 +2,26 @@
 
 ---
 
-## 📌 1. Overview
+# 📌 1. Overview
 
 This project focuses on identifying, exploiting, and securing common vulnerabilities in a Flask-based web application.
+The goal was to understand real-world web security issues and implement defensive mechanisms to protect the application.
 
-The work was completed over **4 weeks**, progressing from vulnerability discovery to implementing strong defensive mechanisms and validating them through testing.
+The project was completed in multiple phases (Week 1–4), starting from vulnerability discovery to implementing strong security controls and testing them.
 
 ---
 
-## 🔍 2. Week 1–2: Vulnerability Identification
+# 🔍 2. Week 1–2: Vulnerability Identification
 
-### 🔴 SQL Injection
+During the initial phase, the application was tested for common security flaws.
+
+## 🔴 SQL Injection
 
 The login system was vulnerable to SQL Injection.
 
 **Payload used:**
 
-```sql
+```
 admin' OR '1'='1
 ```
 
@@ -27,21 +30,15 @@ admin' OR '1'='1
 * Authentication bypass
 * Unauthorized access
 
-📸 **Evidence:**
-
-![SQL Injection Input](screenshots/6_sql_injection_input.png)
-![SQL Injection Success](screenshots/7_sql_injection_success.png)
-![SQL Error](screenshots/5_sql_error.png)
-
 ---
 
-### 🔴 Cross-Site Scripting (XSS)
+## 🔴 Cross-Site Scripting (XSS)
 
 User input was not sanitized, allowing script execution.
 
 **Payload used:**
 
-```html
+```
 <script>alert('XSS')</script>
 ```
 
@@ -52,7 +49,7 @@ User input was not sanitized, allowing script execution.
 
 ---
 
-### 🔴 Weak Password Storage
+## 🔴 Weak Password Storage
 
 Passwords were stored in plain text.
 
@@ -63,88 +60,90 @@ Passwords were stored in plain text.
 
 ---
 
-### 🔴 Error-Based SQL Injection
+## 🔴 Error-Based SQL Injection
 
-Application exposed raw database errors.
+Application exposed database errors.
 
 **Impact:**
 
 * Information leakage
-* Helps attackers map database structure
+* Helps attackers map database
 
 ---
 
-## 🧪 3. Week 3: Testing & Exploitation
+# 🧪 3. Week 3: Testing & Exploitation
 
-Vulnerabilities were tested using:
+The vulnerabilities were tested using:
 
 * Manual browser testing
-* SQL Injection payloads
-* XSS execution
-* SQLite database inspection
-* OWASP ZAP (optional)
+* SQL Injection attacks
+* XSS payload execution
+* Database inspection (SQLite)
+* Optional OWASP ZAP scanning
 
-📸 **Evidence:**
-
-![Register Page](screenshots/1_ui_register_page.png)
-![User Registered](screenshots/2_user_registered_success.png)
-![Login Page](screenshots/3_ui_login_page.png)
-![Login Success](screenshots/4_normal_login_success.png)
+These tests confirmed that the application was vulnerable and exploitable.
 
 ---
 
-## 🛠️ 4. Week 3: Fixes Implemented
+# 🛠️ 4. Week 3: Fixes Implemented
 
-### 🔐 SQL Injection Prevention
+## 🔐 SQL Injection Prevention
 
-* Replaced raw SQL queries with **parameterized queries**
+* Replaced raw queries with parameterized queries
 
-### 🔐 Password Security
+## 🔐 Password Security
 
 * Implemented hashing using:
 
   * `generate_password_hash()`
   * `check_password_hash()`
 
-### 🔐 XSS Protection
+## 🔐 XSS Protection
 
-* Sanitized input using:
+* Used:
 
-  * `escape()` from `markupsafe`
+  * `escape()` from markupsafe
 
-### 🔐 Input Validation
+## 🔐 Input Validation
 
 * Enforced minimum username/password length
 
-### 🔐 Error Handling
+## 🔐 Error Handling
 
-* Removed database error exposure to users
+* Prevented database error exposure
 
 ---
 
-## 🛡️ 5. Week 4: Security Hardening & Defensive Testing
+# 🛡️ 5. Week 4: Security Hardening & Defensive Testing
 
-### ⚡ Rate Limiting
+This phase focused on advanced security controls and testing.
+
+---
+
+## ⚡ Rate Limiting
 
 * Implemented using **Flask-Limiter**
 * Limit: **5 requests per minute**
 
 **Result:**
 
+* Prevents brute-force attacks
+* Returns:
+
 ```
 Too Many Requests
 ```
 
-📸 **Evidence:**
+📸 Evidence:
 
-![Rate Limit](screenshots/week4/week4-rate-limit.png)
+* week4-rate-limit.png
 
 ---
 
-### 🚫 Intrusion Detection (Account Lock)
+## 🚫 Intrusion Detection (Account Lock)
 
 * Tracks failed login attempts
-* Locks account after **5 failed attempts**
+* Locks account after 5 failures
 
 **Result:**
 
@@ -152,69 +151,43 @@ Too Many Requests
 Account temporarily locked due to multiple failed attempts
 ```
 
-📸 **Evidence:**
+📸 Evidence:
 
-<<<<<<< HEAD
 * week4-account-lock-code.png
 * week4-account
 
+---
 
+# 6. 🗓️ Week 5: Ethical Hacking & Exploiting Vulnerabilities
 
+## 🎯 Objective
 
-
-=======
-![Account Lock Code](screenshots/week4/week4-account-lock-code.png)
+The objective of Week 5 was to perform ethical hacking on the developed web application, identify potential vulnerabilities, exploit them in a controlled environment, and implement proper security measures to mitigate risks.
 
 ---
 
-### 🔐 API Authorization Protection
+## 🔍 5.1 Reconnaissance & Application Analysis
 
-* Implemented authentication checks for API endpoints
+The application was analyzed to identify available attack surfaces, including:
 
-📸 **Evidence:**
+- Home Page
+- Login System
+- Registration Form
+- API Endpoints
 
-![API Authorized](screenshots/week4/week4-api-authorized.png)
-![API Unauthorized](screenshots/week4/week4-api-unauthorized.png)
+### 📸 Screenshots
 
----
-
-### 🛡️ SQL Injection & XSS Protections Verified
-
-📸 **Evidence:**
-
-![SQL Injection Blocked](screenshots/week4/week4-sql-injection-blocked.png)
-![XSS Protection](screenshots/week4/week4-xss-protection.png)
+![Home Page](screenshots/week5-home.png)  
+![Login Page](screenshots/week5-login.png)  
+![Register Page](screenshots/week5-register.png)
 
 ---
 
-## ✅ 6. Final Outcome
+## 💉 5.2 SQL Injection Testing (SQLMap)
 
-After implementing all fixes and protections:
+SQL Injection testing was performed using SQLMap to detect any injection vulnerabilities.
 
-* SQL Injection → **Mitigated**
-* XSS → **Prevented**
-* Password storage → **Secured (hashed)**
-* Brute force → **Blocked (rate limiting + lockout)**
-* API access → **Restricted**
+### 🔧 Command Used:
 
----
-
-## 📚 Key Takeaways
-
-* Never trust user input
-* Always use parameterized queries
-* Hash passwords — never store plain text
-* Apply layered security (defense in depth)
-* Test vulnerabilities before and after fixes
-
----
-
-## 🚀 Future Improvements
-
-* Add JWT-based authentication
-* Implement CSRF protection
-* Integrate automated security testing in CI/CD
-* Deploy with HTTPS and secure headers
-
----
->>>>>>> fe74b73154b3fb358016fe138534e18adeb91282
+```bash
+python sqlmap.py -u "http://127.0.0.1:5000/login" --data="username=test&password=test" --batch
