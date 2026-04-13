@@ -136,4 +136,3 @@ The security assessment was conducted in three phases:
 The security audit successfully identified and mitigated multiple vulnerabilities across application, server, and system layers. The implementation of security controls significantly improved the overall security posture of the application.
 
 The application now aligns with OWASP Top 10 best practices and demonstrates resilience against common web-based attacks.
-
